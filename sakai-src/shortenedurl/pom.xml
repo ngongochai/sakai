@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+    <parent>
+        <groupId>org.sakaiproject</groupId>
+        <artifactId>master</artifactId>
+        <version>12-SNAPSHOT</version>
+		<relativePath>../master/pom.xml</relativePath>
+    </parent>
+    
+	<name>Sakai Shortened URL Service</name>
+	<groupId>org.sakaiproject.shortenedurl</groupId>
+	<artifactId>shortenedurl</artifactId>
+    <packaging>pom</packaging>
+
+	<organization>
+        <name>Sakai Project</name>
+        <url>http://sakaiproject.org/</url>
+    </organization>
+    
+    <inceptionYear>2009</inceptionYear>
+	
+	<developers>
+		<developer>
+			<name>Steve Swinsburg</name>
+			<email>steve.swinsburg@gmail.com</email>
+		</developer>
+	</developers>
+
+    <modules>
+        <module>api</module>
+        <module>impl</module>
+        <module>tool</module>
+    </modules>
+
+	<dependencyManagement>
+		<dependencies>
+			
+			<!-- internal dependencies -->
+			<dependency>
+		      	<groupId>${project.groupId}</groupId>
+		      	<artifactId>shortenedurl-api</artifactId>
+		      	<version>${project.version}</version>
+		      	<scope>provided</scope>
+		    </dependency>
+		    <dependency>
+	        	<groupId>${project.groupId}</groupId>
+	         	<artifactId>shortenedurl-impl</artifactId>
+				<version>${project.version}</version>
+				<scope>runtime</scope>
+	      	</dependency>
+		    
+			
+			<!-- java 1.5 requires this at compilation time for org.apache.http.impl.client.DefaultHttpClient -->
+			<dependency>
+				<groupId>net.jcip</groupId>
+				<artifactId>jcip-annotations</artifactId>
+				<version>1.0</version>
+				<scope>provided</scope>
+			</dependency>
+    	</dependencies>
+    </dependencyManagement>
+</project>

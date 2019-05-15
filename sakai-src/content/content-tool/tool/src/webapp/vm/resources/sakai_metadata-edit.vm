@@ -1,0 +1,37 @@
+#* @vtlvariable name="item" type="org.sakaiproject.content.tool.ListItem" *#
+#* @vtlvariable name="request" type="javax.servlet.http.HttpServletRequest" *#
+
+#macro( printMetadataName $metadataType )
+  #if($metadataType.translated)
+    $metaLang.getString($!metadataType.name)
+  #else
+    $!metadataType.name
+  #end
+#end
+
+#macro( printMetadataDescription $metadataType )
+  #if($metadataType.translated)
+    $metaLang.getString($!metadataType.description)
+  #else
+    $!metadataType.description
+  #end
+#end
+
+#macro( editMetadata $metadataType )
+  #set($template = $metadataType.renderer.metadataValueEditTemplate)
+  #parse($request.session.servletContext.getInitParameter($template))
+#end
+
+#set($suffix = "${DOT}$i")
+######################## ================ Optional Properties of Item ================ ########################
+#if(!$item && $model)#set($item = $model)#end
+#set($multipleMetadataType = [])
+#set($groupMetadataLevel = 0)
+#set($groupMetadataValue = [])
+#set($groupMetadataType = [])
+
+#foreach($metadataType in $!item.metadataGroups)
+  #set($metadataValue = $!item.metadataValues.get($metadataType.uniqueName))
+  #editMetadata($metadataType)
+#end
+<input type="hidden" name="metadataGroup${suffix}" id="metadataGroup${suffix}" value=""/>

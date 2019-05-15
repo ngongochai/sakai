@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="none"
+                   package="org.sakaiproject.config.api"
+                   default-lazy="false">
+
+    <class name="org.sakaiproject.config.api.HibernateConfigItem" table="SAKAI_CONFIG_ITEM">
+        <meta attribute="class-description">
+            Represents a stored sakai configuration item.
+            @author Earle Nietzel (earle dot nietzel at gmail dot com)
+        </meta>
+
+        <id name="id" column="ID" type="long">
+            <meta attribute="scope-set">protected</meta>
+            <generator class="native">
+                <param name="sequence">SAKAI_CONFIG_ITEM_S</param>
+            </generator>
+        </id>
+
+        <property name="node" type="string" column="NODE" length="255" index="SCI_NODE_IDX" />
+        <property name="name" type="string" not-null="true" column="NAME" length="255" index="SCI_NAME_IDX" />
+        <property name="value" type="string" length="3000" not-null="false" column="VALUE"/>
+        <property name="rawValue" type="string" length="3000" not-null="false" column="RAW_VALUE"/>
+        <property name="type" type="string" not-null="true" column="TYPE" length="255"/>
+        <property name="defaultValue" type="string" length="3000" not-null="false" column="DEFAULT_VALUE"/>
+        <property name="description" type="string" length="3000" not-null="false" column="DESCRIPTION"/>
+        <property name="source" type="string" not-null="false" column="SOURCE" length="255"/>
+        <property name="defaulted" type="boolean" not-null="true" column="DEFAULTED"/>
+        <property name="registered" type="boolean" not-null="true" column="REGISTERED"/>
+        <property name="secured" type="boolean" not-null="true" column="SECURED"/>
+        <property name="dynamic" type="boolean" not-null="true" column="DYNAMIC"/>
+        <property name="created" type="timestamp" not-null="true" column="CREATED"/>
+        <property name="modified" type="timestamp" not-null="true" column="MODIFIED"/>
+        <property name="pollOn" type="timestamp" not-null="false" column="POLL_ON"/>
+    </class>
+
+</hibernate-mapping>
+

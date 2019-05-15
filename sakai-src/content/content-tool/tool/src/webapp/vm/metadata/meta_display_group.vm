@@ -1,0 +1,39 @@
+#* @vtlmacrolibrary path="../resources/sakai_metadata-display.vm" *#
+#* @vtlvariable name="tlang" type="org.sakaiproject.util.ResourceLoader" *#
+#* @vtlvariable name="item" type="org.sakaiproject.content.tool.ListItem" *#
+#* @vtlvariable name="site_id" type="java.lang.String" *#
+#* @vtlvariable name="metadataType" type="org.sakaiproject.content.metadata.model.MetadataType" *#
+#* @vtlvariable name="metadataValue" type="java.lang.Object" *#
+#* @vtlvariable name="multipleMetadataType" type="java.util.List<java.lang.String>" *#
+#* @vtlvariable name="groupMetadataLevel" type="int" *#
+#* @vtlvariable name="groupMetadataValue" type="java.util.List<java.lang.Object>" *#
+#* @vtlvariable name="groupMetadataType" type="java.util.List<org.sakaiproject.content.metadata.model.MetadataType>" *#
+#* @vtlvariable name="suffix" type="java.lang.String" *#
+
+$groupMetadataType.add($groupMetadataLevel, $metadataType)
+$groupMetadataValue.add($groupMetadataLevel, $metadataValue)
+
+<div id="${metadataType.uniqueName}${suffix}-panel" class="panel panel-default">
+    <div class="panel-heading container-fluid">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#metadataDiv_${metadataType.uniqueName}${suffix}" href="#metadataDiv_${metadataType.uniqueName}${suffix}">
+              #printMetadataName($metadataType)
+            </a>
+        </h4>
+    </div>
+    <div id="metadataDiv_${metadataType.uniqueName}${suffix}" class="panel-collapse collapse">
+        <div class="panel-body">
+          #foreach($metadataType in $groupMetadataType.get($groupMetadataLevel).metadataTypes)
+          ## The #set directive is ignored if the value given evaluates to null, to avoid keeping old values
+          ## an empty string is set.
+            #set($metadataValue = "")
+            #set($metadataValue = $groupMetadataValue.get($groupMetadataLevel).get($metadataType.uniqueName))
+            #set($groupMetadataLevel = $groupMetadataLevel + 1)
+              <p class="form-group">
+                #editMetadata($metadataType)
+              </p>
+            #set($groupMetadataLevel = $groupMetadataLevel - 1)
+          #end
+        </div>
+    </div>
+</div>

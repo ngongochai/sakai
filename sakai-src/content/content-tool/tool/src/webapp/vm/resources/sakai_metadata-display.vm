@@ -1,0 +1,44 @@
+#* @vtlvariable name="metaLang" type="org.sakaiproject.util.ResourceLoader" *#
+#* @vtlvariable name="item" type="org.sakaiproject.content.tool.ListItem" *#
+#* @vtlvariable name="site_id" type="java.lang.String" *#
+
+#macro( printMetadataName $metadataType )
+  #if($metadataType.translated)
+    $metaLang.getString($!metadataType.name)
+  #else
+    $!metadataType.name
+  #end
+#end
+
+#macro( printMetadataDescription $metadataType )
+  #if($metadataType.translated)
+    $metaLang.getString($!metadataType.description)
+  #else
+    $!metadataType.description
+  #end
+#end
+
+
+
+#macro( displayMetadata $metadataType )
+  #set($template = $metadataType.renderer.metadataValueDisplayTemplate)
+  #parse($request.session.servletContext.getInitParameter($template))
+
+  #if($metadataType.translated)
+    $metaLang.getString($metadataType.description)
+  #else
+    $metadataType.description
+  #end
+#end
+
+######################## ================ Optional Properties of Item ================ ########################
+#if(!$item && $model)#set($item = $model)#end
+#set($multipleMetadataType = [])
+#set($groupMetadataLevel = 0)
+#set($groupMetadataValue = [])
+#set($groupMetadataType = [])
+
+#foreach($metadataType in $!item.metadataGroups)
+  #set($metadataValue = $!item.metadataValues.get($metadataType.uniqueName))
+  #displayMetadata($metadataType)
+#end
