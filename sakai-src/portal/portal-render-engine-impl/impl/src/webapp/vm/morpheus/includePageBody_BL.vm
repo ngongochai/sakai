@@ -27,6 +27,23 @@
     <main id="$pageWrapperClass" class="Mrphs-mainContent #if( $numberTools > 1 )Mrphs-multipleTools #end" role="main">
 
         #parse("/vm/morpheus/snippets/siteStatus-snippet.vm")
+		#if !($pageTwoColumn)
+        <div id="$pageColumnLayout" class="${columnClasses}">
+
+            <form id="loginForm" method="post" action="${loginPortalPath}/xlogin" enctype="application/x-www-form-urlencoded" class="Mrphs-loginForm">
+                <label for="eid" class="Mrphs-loginForm__label">${loginEidWording}</label>
+                    <input name="eid" id="eid" type="text" class="Mrphs-loginForm__input" placeholder="${eidPlaceholder}">
+                <label for="pw" class="Mrphs-loginForm__label">${loginPwWording}</label>
+                    <input name="pw" id="pw" type="password" class="Mrphs-loginForm__input" placeholder="${pwPlaceholder}">
+                <input name="submit" id="submit" type="submit" value="${loginWording}" class="Mrphs-loginForm__button">
+            </form>
+                <script>
+                    document.forms[0].eid.focus();
+                </script>
+            <script src="${pageScriptPath}caps-lock-checker.js$!{portalCDNQuery}"></script>
+
+        </div>
+		#end ## END of IF ($pageTwoColumn)
         #if ($pageTwoColumn)
 
             <div id="col2of2" class="Mrphs-pageColumns Mrphs-pageColumns--second">
@@ -162,24 +179,7 @@
                 #end ## END of FOREACH ( $tool in $pageColumn1Tools )
 
             </div> <!-- end of #col2of2 -->
-        #else
-         <div id="$pageColumnLayout" class="${columnClasses}">
-            <form id="loginForm" method="post" action="${loginPortalPath}/xlogin" enctype="application/x-www-form-urlencoded" class="Mrphs-loginForm"style="width: 100%;max-width: 330px;padding: 15px;margin: auto;">
-                <img class="mb-4" src="../skin/morpheus-default/images/hufi.png" alt="" width="72" height="72">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;">Please sign in</h1>
-                <label for="inputEmail" class="sr-only">User name</label>
-                <input name="eid" type="email" id="inputEmail" class="form-control" placeholder="User name" required="" autofocus="">
-                <label for="inputPassword" class="sr-only"style="margin-top: 3px;">Password</label>
-                <input name="pw" type="password" id="inputPassword" class="form-control" placeholder="${pwPlaceholder}" required="">
-				
-                <input name="submit" id="submit" type="submit" value="${loginWording}" class="Mrphs-loginForm__button"style="display: block;width: 100%;height:45px;>
-            </form>
-                <script>
-                    document.forms[0].eid.focus();
-                </script>
-            <script src="${pageScriptPath}caps-lock-checker.js$!{portalCDNQuery}"></script>
 
-        </div>
         #end ## END of IF ($pageTwoColumn)
 
     </main> <!-- END of main.Mrphs-mainContent -->
