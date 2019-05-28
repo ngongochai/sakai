@@ -19,7 +19,10 @@
     </organization>
 
     <url>http://www.sakaiproject.org/</url>
-
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
     <licenses>
         <license>
             <name>Educational Community License, Version 2.0</name>
@@ -52,6 +55,13 @@
 
     </pluginManagement>
 	<plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <configuration>
+        <encoding>UTF-8</encoding>
+      </configuration>
+    </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-clean-plugin</artifactId>
