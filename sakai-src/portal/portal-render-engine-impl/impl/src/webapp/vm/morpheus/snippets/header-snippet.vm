@@ -1,7 +1,28 @@
 ## Header that shows institution and/or banner logos
 
-<header role="banner" class="Mrphs-headerLogo" style=" background: #2edeb5;>
-    <span class="Mrphs-headerLogo--institution"></span>
-    <span class="Mrphs-headerLogo--banner"></span>    
+<header role="banner" class="Mrphs-headerLogo" style=" background: white;height:75px">
+    <div class="logohufi">
+        <Image class="" style="float:left" src="/library/image/hufi.png"></Image>
+    </div>    
+    <div class="infoschool" style="">
+        <div >TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP THỰC PHẨM THÀNH PHỐ HỒ CHÍ MINH</div>
+        <div>KHOA CÔNG NGHỆ THÔNG TIN</div>
+    </div>
     #parse("/vm/morpheus/includeLoginNav.vm")
 </header>
+<style>
+.logohufi{
+    float: left;
+    width: 35%;
+    text-align: left;
+}
+.infoschool{
+    width: 40%;
+    float: left;
+    margin-top: 7px;
+    text-align: CENTER;
+    color: #0d4d94;
+    font-weight: bold;
+    font-size: 21px;
+}
+</style>

@@ -173,10 +173,17 @@
         ## parse("/vm/morpheus/snippets/loginImage-snippet.vm")
     #else ## ELSE of IF (!${loginTopLogin})
 
-        <nav id="mastLogin" class="Mrphs-loginNav" style="margin-right:18px;font-size: 18px;">
-        <a href="/portal/xlogin" style="text-decoration: none;">Login</a>
+        <nav id="" class="Mrphs-loginNav" style="margin-right:18px;font-size: 18px;">
+        <a href="/portal/xlogin" class="btn btn-primary">SignIn</a>  <a class="btn btn-success" href="/portal/site/!gateway/tool/!gateway-810">SignUp</a>
         </nav>
 
     #end ## END of IF (!${loginTopLogin})
 
 </nav>
+<style>
+#mastLogin{
+    line-height:0;
+    height:auto;
+    margin-top:10px;
+}
+</style>
