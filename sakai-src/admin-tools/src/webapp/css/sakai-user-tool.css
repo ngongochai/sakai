@@ -23,7 +23,7 @@
 #user-create_edit input[type="text"], #user-create_edit input[type="password"]
 , #useredit input[type="text"], #useredit input[type="password"]
 {
-    width: 185px;
+    width: 500px;
 }
 
 #user-create_edit #strengthInfo, #useredit #strengthInfo

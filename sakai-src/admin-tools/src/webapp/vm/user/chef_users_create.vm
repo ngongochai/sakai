@@ -37,7 +37,7 @@ ${includeLatestJQuery}
 					<label #if(!$user) for="user_eid" #end>
 						#if(!$user)<span class="reqStar">*</span>#end $tlang.getString("useconrem.useid")
 					</label>
-					#if(!$user)<input type="text" name="eid" id="user_eid" oninput="USER.validateUserId();" onkeyup="USER.validateUserId();" autocomplete="off" #if($valueEid)value="$validator.escapeHtml($valueEid)"#end />#else$validator.escapeHtml($user.Eid)#end
+					#if(!$user)<input type="text" class="form-control" name="eid" id="user_eid" oninput="USER.validateUserId();" onkeyup="USER.validateUserId();" autocomplete="off" #if($valueEid)value="$validator.escapeHtml($valueEid)"#end />#else$validator.escapeHtml($user.Eid)#end
 				</div>
 			#end
 			#if (!$isValidatedWithAccountValidator)
@@ -45,20 +45,20 @@ ${includeLatestJQuery}
 					<label for="first-name">
 						$tlang.getString("usecre.firnam")
 					</label>
-					<input type="text" name="first-name" id="first-name" #if($user)value="$validator.escapeHtml($user.FirstName)"#elseif($valueFirstName)value="$validator.escapeHtml($valueFirstName)"#end/>
+					<input type="text" class="form-control" name="first-name" id="first-name" #if($user)value="$validator.escapeHtml($user.FirstName)"#elseif($valueFirstName)value="$validator.escapeHtml($valueFirstName)"#end/>
 				</div>
 				<div class="shorttext">
 					<label for="last-name">
 						$tlang.getString("usecre.lasnam")
 					</label>
-					<input type="text" name="last-name" id="last-name" #if($user)value="$validator.escapeHtml($user.LastName)"#elseif($valueLastName)value="$validator.escapeHtml($valueLastName)"#end/>
+					<input type="text" class="form-control" name="last-name" id="last-name" #if($user)value="$validator.escapeHtml($user.LastName)"#elseif($valueLastName)value="$validator.escapeHtml($valueLastName)"#end/>
 				</div>
 			#end
 			<div class="shorttext required">
 				<label for="email">
 					#if ($emailRequired) <span class="reqStar">*</span> #end $tlang.getString("useconrem.ema")
 				</label>
-				<input type="text" name="email" id="email" oninput="USER.validateEmail();" onkeyup="USER.validateEmail();" autocomplete="off"#if($user)value="$validator.escapeHtml($user.Email)"#elseif($valueEmail)value="$validator.escapeHtml($valueEmail)"#end #if ($emailRequired) required='required' #end/>
+				<input type="text" class="form-control" name="email" id="email" oninput="USER.validateEmail();" onkeyup="USER.validateEmail();" autocomplete="off"#if($user)value="$validator.escapeHtml($user.Email)"#elseif($valueEmail)value="$validator.escapeHtml($valueEmail)"#end #if ($emailRequired) required='required' #end/>
 				<div id="emailWarningMsg" style="display:none">$tlang.getString("useact.invemail")</div>
 			</div>
 			#if (!$isValidatedWithAccountValidator)
@@ -66,7 +66,7 @@ ${includeLatestJQuery}
 					<label for="user_pw">
 						#if ($pwRequired) <span class="reqStar">*</span> #end $tlang.getString("usecre.crenewpass")
 					</label>
-					<input type="password" name="pw" id="user_pw" oninput="USER.validatePassword();" oninput="USER.hideAllElements();USER.validateForm();" onblur="USER.displayStrengthInfo();USER.validatePassword();" onfocus="USER.displayStrengthInfo();" autocomplete="off" />
+					<input type="password" class="form-control" name="pw" id="user_pw" oninput="USER.validatePassword();" oninput="USER.hideAllElements();USER.validateForm();" onblur="USER.displayStrengthInfo();USER.validatePassword();" onfocus="USER.displayStrengthInfo();" autocomplete="off" />
 					<div id="strongMsg" style="display:none">$tlang.getString("pw.strong")</div>
 					<div id="moderateMsg" style="display:none">$tlang.getString("pw.moderate")</div>
 					<div id="weakMsg" style="display:none">$tlang.getString("pw.weak")</div>
@@ -80,7 +80,7 @@ ${includeLatestJQuery}
 					<label for="user_pw0">
 						#if ($pwRequired) <span class="reqStar">*</span> #end $tlang.getString("usecre.vernewpass")
 					</label>
-					<input type="password" name="pw0" id="user_pw0" oninput="USER.hideAllElements();USER.validateForm();" onblur="USER.verifyPasswordsMatch();" autocomplete="off" />
+					<input type="password" class="form-control" name="pw0" id="user_pw0" oninput="USER.hideAllElements();USER.validateForm();" onblur="USER.verifyPasswordsMatch();" autocomplete="off" />
 					<div id="matchMsg" style="display:none">$tlang.getString("pw.match")</div>
 					<div id="noMatchMsg" style="display:none">$tlang.getString("pw.noMatch")</div>
 				</div>
@@ -88,7 +88,7 @@ ${includeLatestJQuery}
 					<label for="dtype">
 						$tlang.getString("usecre.typ")
 					</label>
-					<input disabled type="text" name="dtype" id="dtype" value="$type"/>
+					<input class="form-control" disabled type="text" name="dtype" id="dtype" value="$type"/>
 					<input type="hidden" name="type" id="type" value="$type"/>
 				</div>
 			#end
