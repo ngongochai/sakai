@@ -1,6 +1,6 @@
 ## login component
 
-<nav id="mastLogin" class="Mrphs-loginNav">
+<nav id="mastLogin" #if (${userIsLoggedIn}) class="logined Mrphs-loginNav" #else class="Mrphs-loginNav" #end>
 
     #if (!${loginTopLogin})
 
@@ -185,5 +185,8 @@
     line-height:0;
     height:auto;
     margin-top:10px;
+}
+.logined{
+background:#15597e;
 }
 </style>
