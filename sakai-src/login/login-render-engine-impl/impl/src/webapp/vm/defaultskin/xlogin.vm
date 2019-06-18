@@ -42,7 +42,7 @@
             #if (${notify})
         		<div class="alertMessage" role="alert">${notify}</div>
         	#end
-    		<fieldset class="fieFormlogin" style="width: 70% !important;">
+    		<fieldset class="fieFormlogin" style="width: 70% !important">
 				<div class="form-group">
                     <label class="lbformlogin" for="eid">${loginEidWording}</label>
 					<input class="form-control" name="eid" id="eid" value="${eid}" type="text" size="15"/>
