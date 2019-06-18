@@ -174,7 +174,7 @@
     #else ## ELSE of IF (!${loginTopLogin})
 
         <nav id="" class="Mrphs-loginNav" style="margin-right:18px;font-size: 18px;">
-        <a href="/portal/xlogin" class="btn btn-primary">SignIn</a>  <a class="btn btn-success" href="/portal/site/!gateway/tool/!gateway-710">SignUp</a>
+        <a href="/portal/xlogin" class="btn btn-success">Đăng nhập</a>
         </nav>
 
     #end ## END of IF (!${loginTopLogin})
