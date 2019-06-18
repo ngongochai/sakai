@@ -42,7 +42,7 @@
             #if (${notify})
         		<div class="alertMessage" role="alert">${notify}</div>
         	#end
-    		<fieldset class="fieFormlogin">
+    		<fieldset class="fieFormlogin" style="width: 70% !important;">
 				<div class="form-group">
                     <label class="lbformlogin" for="eid">${loginEidWording}</label>
 					<input class="form-control" name="eid" id="eid" value="${eid}" type="text" size="15"/>
@@ -56,10 +56,10 @@
     			#end
     			<div class="form-group button-xlogin">
     			#if (${doCancel})
-    				<input name="submit" type="submit" id="submit" class="btn btn-primary" value="${loginWording}"/>
-    				<input name="cancel" type="submit" class="btn btn-default" value="${cancelWording}"/>
+    				<input name="submit" type="submit" id="submit" class="btn btn-primary col-md-6 col-xs-12" value="${loginWording}"/>
+    				<input name="cancel" type="submit" class="btn btn-default col-xs-12" value="${cancelWording}"/>
     			#else
-    				<input name="submit" class="btn btn-primary" type="submit" id="submit" value="${loginWording}"/>
+    				<input name="submit" class="btn btn-primary col-md-6 col-xs-12" type="submit" id="submit" value="${loginWording}"/>
     			#end
     			</div>
     			#if (${passwordResetUrl})
