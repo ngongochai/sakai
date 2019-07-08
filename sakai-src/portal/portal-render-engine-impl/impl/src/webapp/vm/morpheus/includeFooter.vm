@@ -16,7 +16,7 @@
 </div>
 <script type="text/javascript"> 
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'vi', includedLanguages: 'en,id,iw,ja,km,ko,la,lo,ml,ms,th,tl,vi,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,id,iw,ja,km,ko,la,lo,ml,ms,th,tl,vi,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay: false}, 'google_translate_element');
 }
 </script> 
   
