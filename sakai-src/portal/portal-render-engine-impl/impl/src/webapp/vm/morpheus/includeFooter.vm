@@ -1,5 +1,5 @@
 <div class="Mrphs-container Mrphs-container--footer" style="background-color: #005ca1;color: white;padding-bottom: 10px;font-size: 20px;padding-top: 15px;">
-
+<div id="google_translate_element"></div> 
    <footer>
             <div class="foot-ct">
     <div style="text-align: center;">
@@ -12,11 +12,11 @@
 
 
         </footer>
-<div id="google_translate_element"></div> 
+
 </div>
 <script type="text/javascript"> 
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'vi', 
+  new google.translate.TranslateElement({pageLanguage: 'en', 
   includedLanguages: 'en,id,iw,ja,km,ko,la,lo,ml,ms,th,tl,vi,zh-CN,zh-TW', 
   layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
   autoDisplay: true}, 'google_translate_element');
